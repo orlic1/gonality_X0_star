@@ -6,7 +6,7 @@ Fp2points := function(N,p)
   pls1:=Places(AFF,1);
   pls2:=Places(AFF,2);
   assert #pls1+2*#pls2 gt 4*(p^2+1);
-  return 1;
+  return #pls1+2*#pls2;
 end function;
 
 L:={[448, 3], [472, 3], [496, 3], [544, 3], [567, 2], [568, 3], [576, 5], [584, 3], [592, 3],
