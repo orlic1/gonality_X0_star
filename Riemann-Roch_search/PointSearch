@@ -1,0 +1,23 @@
+pointsrc := function(N)
+  X:=X0Nstar(N);
+  p:=PointSearch(X,1000);
+  pls1:=[Place(P) : P in p];
+  // 1+1+1+1
+  s:={};
+  for i:=1 to #pls1 do
+  for j:=i to #pls1 do
+  for k:=j to #pls1 do
+  for l:=k to #pls1 do
+  s:=s  join {Dimension(RiemannRochSpace(pls1[i]+pls1[j]+pls1[k]+pls1[l]))};
+  end for;
+  end for;
+  end for;
+  end for;
+  assert s eq {1,2};
+  return 1;
+end function;
+
+for N in {218, 226, 235, 237, 250, 278, 339, 382, 391, 393, 402, 406, 407, 413, 418, 435, 438, 465, 494, 551, 555, 574, 595, 645} do
+  N;
+  pointsrc(N);
+end for;
