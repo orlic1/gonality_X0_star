@@ -1,0 +1,20 @@
+Fp2points := function(N,p)
+  X:= X0Nstar(N);
+  C2:=ChangeRing(X,GF(p));
+  FF := FunctionField(C2);
+  AFF := AlgorithmicFunctionField(FF);
+  pls1:=Places(AFF,1);
+  pls2:=Places(AFF,2);
+  assert #pls1+2*#pls2 gt 4*(p^2+1);
+  return 1;
+end function;
+
+L:={[448, 3], [472, 3], [496, 3], [544, 3], [567, 2], [568, 3], [576, 5], [584, 3], [592, 3],
+[880, 3], [920, 3], [936, 5], [945, 2], [952, 3], [1008, 5], [1026, 5], [1056, 5], [1104, 5], [1128, 5], [1200, 7]};
+
+for pair in L do
+  N:=pair[1];
+  p:=pair[2];
+  N,p;
+  Fp2points(N,p);
+end for;
