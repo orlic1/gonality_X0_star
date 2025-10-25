@@ -4,7 +4,7 @@ Additional README files have been put into subfolders to better explain the code
 
 ## Contents
 
-- Ogg_inequality.txt contains code that checks Ogg's inequality and eliminates levels $N$ that are prime powers (in that case we have $X_0^*(N)=X_0^+(N)$). In this way we obtain a list of $559$ possible tetragonal curves $X_0^*(N)$. The complete list of these values is
+- Ogg_inequality.txt contains code that eliminates levels $N$ that are prime powers, as in that case we have $X_0^* (N)=X_0^+(N)$, and checks Ogg's inequality. In this way we obtain a list of $559$ possible tetragonal curves $X_0^*(N)$. The complete list of these values is
 
 [192, 208, 212, 216, 218, 226, 232, 235, 237, 244, 250, 253, 265, 268, 272,
 274, 278, 279, 288, 291, 292, 296, 297, 298, 301, 302, 304, 309, 314, 316, 320,
@@ -92,7 +92,7 @@ We explicitly find a degree $4$ rational map from $X_0^*(218)$ to $\mathbb{P}^1$
 
 - Fp_gonality folder contains codes that give lower bounds on $\mathbb{Q}$-gonality by bounding the $\mathbb{F}_p$-gonality. The methods used there are either
   - proving that all $\mathbb{F}_p$-rational divisors $D\geq0$ of degree $d$ have Riemann-Roch dimension $1$ (file Fp_gonality.txt).
-  - counting the number of $\mathbb{F}_q$ points and concluding it is too large (greater than $4(q+1)$).
+  - counting the number of $\mathbb{F}_q$ points and concluding it is too large, i.e., greater than $4 (q+1)$.
 
   We count $\mathbb{F}_q$ points with help of functions JacobianDecompositionQuotientX0NWN(), FpnpointsforQuotientcurveX0NWN() from the file funcions.m. The function JacobianDecompositionQuotientX0NWN() attempts to determine all modular forms $f$ such that $A_f$ is in the decomposition of the Jacobian of the quotient curve. If is succeeds (HH[1]=11111111111111), then we can obtain the correct number of $\mathbb{F}_q$ points (file Fq-points_no_model).
 
