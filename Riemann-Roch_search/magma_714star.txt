@@ -1,0 +1,60 @@
+X:= X0NQuotient(714,[2,3,7,17]);
+p:=PointSearch(X,1000);
+pls1:=[Place(P) : P in p];
+
+R<x> := PolynomialRing(Rationals());
+K<y> := NumberField(x^2+4/3*x+2/3);
+pls2:={Place(X(K) ! [0, y, -y*2-1, -y, 1])};
+
+K<y> := NumberField(x^2+x-1/2);
+pls2:=pls2 join {Place(X(K) ! [0, y, -y, 1, 0])};
+
+K<y> := NumberField(x^2+1/6);
+pls2:=pls2 join {Place(X(K) ! [y, -y, 2*y, 1, 1])};
+
+K<y> := NumberField(x^2+2*x-1/2);
+pls2:=pls2 join {Place(X(K) ! [1, y, -y, 2*y, 1])};
+
+K<y> := NumberField(x^2-10/3*x+4/9);
+pls2:=pls2 join {Place(X(K) ! [1/3, y, -y+1/3, -y+2/3, 1])};
+
+K<y> := NumberField(x^2-2/13*x-2/13);
+pls2:=pls2 join {Place(X(K) ! [y, -y, -y/3+1/3, 2/3*y-2/3, 1])};
+
+K<y> := NumberField(x^2-5/2*x+1/2);
+pls2:=pls2 join {Place(X(K) ! [y, y-3, -2*y+3, 2, 1])};
+
+K<y> := NumberField((1-3*x)^2-7/23*(1-3*x)+2/23);
+pls2:=pls2 join {Place(X(K) ! [1-3*y, 7*y-2, 3-11*y, y, 1])};
+
+K<y> := NumberField(x^2-1/15);
+pls2:=pls2 join {Place(X(K) ! [y, -5/2*y-1/2, y/2+1/2, 3*y, 1])};
+
+K<y> := NumberField(x^2+6*x-2);
+pls2:=pls2 join {Place(X(K) ! [y, 2, -y-1, y-2, 1])};
+
+K<y> := NumberField(x^2+23/43*x+4/43);
+pls2:=pls2 join {Place(X(K) ! [y, -y/3-1/3, 13/3*y+4/3, 11/3*y+5/3, 1])};
+
+K<y> := NumberField(x^2+2*x+4/3);
+pls2:=pls2 join {Place(X(K) ! [-1, y, 2*y+3, y+2, 1])};
+
+K<y> := NumberField((-6/5*x+4/5)^2-56/83*(-6/5*x+4/5)+8/83);
+pls2:=pls2 join {Place(X(K) ! [-6/5*y+4/5, 17/5*y-8/5, 4/5*y-1/5, y, 1])};
+
+K<y> := NumberField(x^2+5/3*x+5/6);
+pls2:=pls2 join {Place(X(K) ! [-1, y, -5*y-4, -4*y-2, 1])};
+
+pls2:=SetToSequence(pls2);
+
+// 1+1+2
+s:={};
+for i:=1 to #pls1 do
+for j:=i to #pls1 do
+i,j,s;
+for n:=1 to #pls2 do
+s:=s  join {Dimension(RiemannRochSpace(pls1[i]+pls1[j]+pls2[n]))};
+end for;
+end for;
+end for;
+s;
