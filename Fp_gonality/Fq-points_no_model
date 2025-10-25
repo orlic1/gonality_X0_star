@@ -1,0 +1,35 @@
+load "funcions.m";
+List:=[[477, 2], [484, 3], [508, 3], [514, 3], [538, 3], [548, 3], [549, 2], [554, 3], [556, 3],
+[562, 3], [566, 3], [578, 3], [586, 3], [597, 2], [603, 2], [604, 3], [605, 2], [614, 3], [633, 2], [635, 2], [637, 2], [639, 2], [649, 2],
+[657, 2], [667, 3], [669, 2], [679, 3], [681, 2], [685, 2], [700, 3], [703, 3], [707, 2], [713, 2], [721, 2], [725, 2], [731, 2], [737, 2],
+[745, 2], [749, 2], [755, 2], [763, 2], [767, 2], [779, 2], [781, 2], [791, 2], [793, 2], [799, 2], [803, 2], [817, 2], [820, 3], [825, 2],
+[830, 3], [850, 3], [851, 2], [868, 3], [885, 2], [902, 3], [915, 2], [940, 3], [946, 3], [950, 3], [970, 3], [975, 2], [988, 3], [994, 3],
+[1002, 5], [1005, 2], [1010, 3], [1014, 5], [1015, 3], [1022, 3], [1023, 2], [1030, 3], [1034, 3], [1035, 2], [1054, 3], [1065, 2], [1066, 3],
+[1071, 2], [1074, 5], [1085, 2], [1086, 5], [1095, 2], [1098, 5], [1102, 3], [1105, 2], [1113, 2], [1118, 3], [1131, 2], [1146, 5], [1158, 5],
+[1173, 2], [1182, 5], [1194, 5], [1206, 5], [1209, 2], [1221, 2], [1235, 2], [1265, 2], [1295, 2], [1309, 2], [1540, 3], [1610, 3], [1716, 5],
+[1722, 5], [1785, 2], [1794, 5], [1974, 5], [2040, 7], [2046, 5], [2190, 7], [2280, 7], [2370, 9], [2490, 7], [4290, 7]];
+for pair in List do
+N:=pair[1];
+p:=pair[2];
+Subg:=Divisors(N);
+TN:=[**];
+for t in Subg do
+   m:=GCD(t, Numerator(N/t));
+    if m eq 1 then
+      TN:=Append(TN,t);
+    end if;
+end for;
+t:=#TN; //Order of the subgroup of involutions
+genusquotientcurve:=genereX0NQuotientWN(N,TN,t); // Return the genus of the quotient modular curve X0(N)/TN
+prec := 20; // Number of coefficients of the q-expansion
+HH := JacobianDecompositionQuotientX0NWN(N, TN, prec, t);  // Should return 11111111111111 if such Magma function JacobianDecompositionQuotientX0NWN compute the exact Jacobian decomposition (if one factor appears n times, appears n times in Jacobian decomposition)
+// If returns 0 then each factor (i.e. each abelian variety attached to a modular form listed in HH[2]) appears in the Jacobian decomposition BUT if one factors appears n times in Jacob.decom, here could appear m times (in the list HH[2]) with m ge n.
+//For N square free as our example should appear 11111111111 and compute the programme directly the Jacobian decomposition
+  // List the modular forms with q-expansion that are factor of the Jacobian, (could appear repeated if some factor of the Jacobian can appeared repeated)
+  // List the number fields of the list of modular forms given in HH[2], the order is the same
+bound:=2;// For bound n where we will compute F_{p^n} points of the modular curve
+N;
+assert HH[1] eq 11111111111111;
+FpnpointsQuotientCurve:=FpnpointsforQuotientcurveX0NWN(N,p,HH[2],HH[3],bound);
+N,HH[1], p, FpnpointsQuotientCurve; //List the number of F_{p^n}-points for the modular curve X0(N)/TN for n=1 until bound IF HH[1]= 11111111111111
+end for;
