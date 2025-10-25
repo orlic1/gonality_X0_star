@@ -1,0 +1,38 @@
+//g=4, Q-trigonal
+L:=[137, 148, 172, 201, 202, 214, 219, 242, 253, 254, 260, 262, 302, 305, 319, 323, 345, 351, 395, 434, 555];
+for N in L do
+  X:=X0Nstar(N);
+  Genus4GonalMap();
+end for;
+
+//g=4, not Q-trigonal
+L:=[160, 173, 199, 200, 224, 225, 228, 247, 251, 259, 261, 264, 267, 273, 275, 280, 300, 306, 308, 311, 321, 322, 334, 335, 341, 342, 350, 354, 355, 356, 370, 374, 385, 399, 426, 483, 546, 570];
+for N in L do
+  X:=X0Nstar(N);
+  Genus4GonalMap();
+end for;
+
+//g=6, Q-tetragonal
+L:=[163, 197, 211, 223, 244, 265, 269, 272, 274, 297, 301, 332, 336, 340, 359, 369, 375, 447, 470, 564, 598, 620, 627, 670, 780];
+for N in L do
+  X:=X0Nstar(N);
+  gon,type,map:=Genus6GonalMap(X);
+  assert gon eq 4;
+  assert type eq 1;
+  map;
+end for;
+
+//g=6, not Q-tetragonal
+L:=[271, 291, 314, 325, 327, 338, 398, 451, 506, 561, 590, 609, 615, 690, 858];
+for N in L do
+  X:=X0Nstar(N);
+  gon,type,map:=Genus6GonalMap(X);
+  assert gon eq 4;
+  assert type eq 1;
+  map;
+end for;
+
+//N=378, g=5
+X:=X0Nstar(378);
+C:=CanonicalImage(X,CanonicalMap(X));
+Genus5GonalMap(C);
