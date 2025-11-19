@@ -1,5 +1,4 @@
-pointsrc := function(N)
-  X:=X0Nstar(N);
+pointsrc := function(X)
   p:=PointSearch(X,1000);
   pls1:=[Place(P) : P in p];
   // 1+1+1+1
@@ -19,5 +18,14 @@ end function;
 
 for N in {218, 226, 235, 237, 250, 278, 339, 382, 391, 393, 402, 406, 407, 413, 418, 435, 438, 465, 494, 551, 555, 574, 595, 645} do
   N;
-  pointsrc(N);
+  X:=X0Nstar(N);
+  pointsrc(X);
+end for;
+
+for pairs in {<210, [30,35]>, <234, [18,26]>, <240, [3,80]>, <273, [3,91]>, <282, [2,47]>, <294, [6,98]>} do
+  N:=pairs[1];
+  WN:=pairs[2];
+  N,WN;
+  X:=X0NQuotient(N,WN);
+  pointsrc(X);
 end for;
