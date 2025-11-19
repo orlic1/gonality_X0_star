@@ -3,6 +3,8 @@
 ## Contents
 
 - new_models.m and quotient_model.m contain auxiliary functions. The most important one there is quotient_model, which gives models for Atkin-Lehner quotients of $X_0(N)$. The author of these two files is Philippe Michaud-Jacobs.
+  
+  This model is used only twice here: for computing the Betti number of a genus $9$ curve $X_0(N)/\left<w_3,w_{88}\right>$, and for finding a degree $4$ map $X_0(306)/\left<w_9,w_{34}\right>\to\mathbb P^1$. For these two curves the computations with the X0NQuotient() model were taking too long.
 
 ### Example
 We compute a model of a quotient curve $X_0^*(144)$.
