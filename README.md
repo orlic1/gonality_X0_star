@@ -1,10 +1,10 @@
-# Magma codes from the paper "Tetragonal modular quotients $X_0^*(N)$" by P. Orlić.
+# Magma codes from the papers "Tetragonal modular quotients $X_0^*(N)$" and "Tetragonal modular quotients of $X_0(N)$" by P. Orlić.
 
 Additional README files have been put into subfolders to better explain the code there.
 
 ## Contents
 
-- Ogg_inequality.txt contains code that eliminates levels $N$ that are prime powers, as in that case we have $X_0^* (N)=X_0^+(N)$, and checks Ogg's inequality. In this way we obtain a list of $559$ possible tetragonal curves $X_0^*(N)$. The complete list of these values is
+- Ogg_inequality.txt is used only for curves $X_0^*(N)$. It contains code that eliminates levels $N$ that are prime powers, as in that case we have $X_0^* (N)=X_0^+(N)$, and checks Ogg's inequality. In this way we obtain a list of $559$ possible tetragonal curves $X_0^*(N)$. The complete list of these values is
 
 [192, 208, 212, 216, 218, 226, 232, 235, 237, 244, 250, 253, 265, 268, 272,
 274, 278, 279, 288, 291, 292, 296, 297, 298, 301, 302, 304, 309, 314, 316, 320,
@@ -44,7 +44,7 @@ Additional README files have been put into subfolders to better explain the code
 2070, 2100, 2130, 2190, 2220, 2280, 2310, 2340, 2370, 2460, 2490, 2520, 2580,
 2730, 2940, 3150, 3360, 3570, 3990, 4290, 4620, 4830, 5460, 6090, 6510, 6930]
 
-- Betti_numbers.txt contains codes that prove or disprove the existence of a degree $4$ morphism to $\mathbb{P}^1$ by computing $\beta_{2,2}$.
+- Betti_numbers-star.txt and Betti_numbers-intermediate contain codes that prove or disprove the existence of a degree $4$ morphism to $\mathbb{P}^1$ by computing $\beta_{2,2}$.
 
 ### Example
 For a curve $X_0^*(298)$ we compute $\beta_{2,2}=0$, implying that this curve is not tetragonal. 
@@ -55,7 +55,7 @@ BettiTable(A);
 BettiNumber(A,2,4);  // Returns 0. Notice that the indexations of Betti numbers are different. This is more thoroughly explained in the paper.
 ```
 
-- Small_genus.txt constructs gonal maps to $\mathbb{P}^1$ from curves of genus $4$ and $6$. All constructions use Magma functions Genus4GonalMap() and Genus6GonalMap(). We also construct a degree $4$ map from a genus $5$ curve $X_0^*(378)$.
+- Small_genus.txt is used only for curves $X_0^*(N)$. It constructs gonal maps to $\mathbb{P}^1$ from curves of genus $4$ and $6$. All constructions use Magma functions Genus4GonalMap() and Genus6GonalMap(). We also construct a degree $4$ map from a genus $5$ curve $X_0^*(378)$.
 
 ### Example
 We explicitly find a degree $3$ rational map from $X_0^*(148)$ to $\mathbb{P}^1$. 
@@ -68,7 +68,7 @@ Genus4GonalMap(X);  // Returns a map from $X$ to $\mathbb{P}^1$. It is easy to v
 - Riemann-Roch_search folder contains codes that find rational functions of degree $4$ to $\mathbb{P}^1$.
   - PointSearch.txt finds rational points on a curve using the function PointSearch() and uses these rational points to find a degree $4$ divisor $D\geq0$ consisting of these points with Riemann-Roch dimension $2$, hence proving a degree $4$ rational map to $\mathbb{P}^1$.
   - QuadPts.txt is an auxiliary file that was used to search for quadratic points on curves. These quadratic points were then used in codes in the folder Riemann-Roch_search to find degree $4$ rational functions. The main function here is SearchPts(X,bd) which searches for quadratic points on $X$ via intersections with hyperplanes $a_0x_0+a_1x_1+a_2x_2=0$ such that $|a_i|\leq bd$. Note that this function can have a long running time, but the output of points is continuous (the points can and will repeat).
-  - Other files in this folder find a degree $4$ map to $\mathbb{P}^1$ by considering divisors of the form $1+1+2$. We again search for rational points with PointSearch() and the quadratic points are obtained with Quadpts.txt. Each file is a code for one curve.
+  - Other files in this folder find a degree $4$ map to $\mathbb{P}^1$ by considering divisors of the form $1+1+1+1$ or $1+1+2$. We again search for rational points with PointSearch() and the quadratic points are obtained with Quadpts.txt. Each file is a code for one curve.
  
 ### Example
 We explicitly find a degree $4$ rational map from $X_0^*(218)$ to $\mathbb{P}^1$. 
@@ -90,7 +90,7 @@ We explicitly find a degree $4$ rational map from $X_0^*(218)$ to $\mathbb{P}^1$
   s;
 ```
 
-- Fp_gonality folder contains codes that give lower bounds on $\mathbb{Q}$-gonality by bounding the $\mathbb{F}_p$-gonality. The methods used there are either
+- Fp_gonality folder contains codes that give lower bounds on $\mathbb{Q}$-gonality by bounding the $\mathbb{F}_p$-gonality. It is split into two folders, star (for $X_0^*(N)$) and intermediate (for $X_0(N)/W_N$). The methods used there are either
   - proving that all $\mathbb{F}_p$-rational divisors $D\geq0$ of degree $d$ have Riemann-Roch dimension $1$ (file Fp_gonality.txt).
   - counting the number of $\mathbb{F}_q$ points and concluding it is too large, i.e., greater than $4 (q+1)$.
 
