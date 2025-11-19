@@ -1,7 +1,5 @@
 # Magma codes from the papers "Tetragonal modular quotients $X_0^*(N)$" and "Tetragonal modular quotients of $X_0(N)$" by P. Orlić.
 
-Additional README files have been put into subfolders to better explain the code there.
-
 ## Contents
 
 - Ogg_inequality.txt is used only for curves $X_0^* (N)$. It contains code that eliminates levels $N$ that are prime powers, as in that case we have $X_0^* (N)=X_0^+(N)$, and checks Ogg's inequality. In this way we obtain a list of $559$ possible tetragonal curves $X_0^*(N)$. The complete list of these values is
