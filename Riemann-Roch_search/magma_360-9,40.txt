@@ -1,0 +1,34 @@
+X:= X0NQuotient(360,[9,40]);
+
+pls1:={Place(X ! [0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,1])};
+1;
+pls1:=pls1 join {Place(X ! [0 ,-1 ,1 ,0 ,1 ,0 ,0 ,-1 ,0 ,0 ,0 ,-1 ,1])};
+2;
+pls1:=pls1 join {Place(X ! [0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,1 ,0])};
+3;
+pls1:=pls1 join {Place(X ! [0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1 ,0 ,1 ,0 ,0])};
+4;
+pls1:=pls1 join {Place(X ! [-1/2 ,0 ,-1/2 ,0 ,-1/2 ,-1/2 ,0 ,-1/2 ,0 ,0 ,-1/2 ,-1/2 ,1])};
+5;
+pls1:=pls1 join {Place(X ! [1 ,0 ,1 ,0 ,1 ,1 ,0 ,-2 ,0 ,0 ,1 ,1 ,1])};
+6;
+pls1:=pls1 join {Place(X ! [-2 ,-3 ,1 ,0 ,1 ,-2 ,0 ,1 ,0 ,0 ,-2 ,1 ,1])};
+7;
+pls1:=pls1 join {Place(X ! [1 ,0 ,1 ,0 ,1 ,1 ,0 ,1 ,3/2 ,0 ,-1/2 ,1 ,1])};
+8;
+
+pls1:=SetToSequence(pls1);
+
+// 1+1+1+1
+s:={};
+for i:=1 to #pls1 do
+for j:=i to #pls1 do
+i,j,s;
+for k:=j to #pls1 do
+for l:=k to #pls1 do
+s:=s  join {Dimension(RiemannRochSpace(pls1[i]+pls1[j]+pls1[k]+pls1[l]))};
+end for;
+end for;
+end for;
+end for;
+s;

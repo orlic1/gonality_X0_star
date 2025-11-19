@@ -1,0 +1,34 @@
+load "quotient_model.m";
+X:= quotient_model(306,[9,34]);
+0;
+
+pls1:={Place(X ! [0, 0, 0, 0, 3, 2, 0, -1, 1, 1])};
+1;
+pls1:=pls1 join {Place(X ! [0, 0, 0, 0, 1, -1, -1, 0, 1, 0])};
+2;
+pls1:=pls1 join {Place(X ! [-1, 0, 0, 0, 1, 0, 0, 0, 0, 0])};
+3;
+pls1:=pls1 join {Place(X ! [1, 0, 0, 0, 1, 0, 0, 0, 0, 0])};
+4;
+pls1:=pls1 join {Place(X ! [-3, -3, 0, -3, 3, 2, 3, 2, -2, 1])};
+5;
+pls1:=pls1 join {Place(X ! [3, 3, 0, 3, 3, 2, 3, 2, -2, 1])};
+6;
+
+pls1:=SetToSequence(pls1);
+7;
+
+// 1+1+1+1
+s:={};
+for i:=1 to #pls1 do
+for j:=i to #pls1 do
+for k:=j to #pls1 do
+for l:=k to #pls1 do
+d:=Dimension(RiemannRochSpace(pls1[i]+pls1[j]+pls1[k]+pls1[l]));
+i,j,k,l,s;
+s:=s  join {d};
+end for;
+end for;
+end for;
+end for;
+s;
