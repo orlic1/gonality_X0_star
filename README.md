@@ -2,6 +2,15 @@
 
 ## Contents
 
+- new_models.m and quotient_model.m contain auxiliary functions. The most important one there is quotient_model, which gives models for Atkin-Lehner quotients of $X_0(N)$. The author of these two files is Philippe Michaud-Jacobs.
+
+### Example
+We compute a model of a quotient curve $X_0^*(144)$.
+```magma
+load "quotient_model.m";
+quotient_model(144,[9,16]);
+```
+
 - Ogg_inequality.txt is used only for curves $X_0^* (N)$. It contains code that eliminates levels $N$ that are prime powers, as in that case we have $X_0^* (N)=X_0^+(N)$, and checks Ogg's inequality. In this way we obtain a list of $559$ possible tetragonal curves $X_0^*(N)$. The complete list of these values is
 
 [192, 208, 212, 216, 218, 226, 232, 235, 237, 244, 250, 253, 265, 268, 272,
