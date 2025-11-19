@@ -4,7 +4,7 @@ Additional README files have been put into subfolders to better explain the code
 
 ## Contents
 
-- Ogg_inequality.txt is used only for curves $X_0^*(N)$. It contains code that eliminates levels $N$ that are prime powers, as in that case we have $X_0^* (N)=X_0^+(N)$, and checks Ogg's inequality. In this way we obtain a list of $559$ possible tetragonal curves $X_0^*(N)$. The complete list of these values is
+- Ogg_inequality.txt is used only for curves $X_0^* (N)$. It contains code that eliminates levels $N$ that are prime powers, as in that case we have $X_0^* (N)=X_0^+(N)$, and checks Ogg's inequality. In this way we obtain a list of $559$ possible tetragonal curves $X_0^*(N)$. The complete list of these values is
 
 [192, 208, 212, 216, 218, 226, 232, 235, 237, 244, 250, 253, 265, 268, 272,
 274, 278, 279, 288, 291, 292, 296, 297, 298, 301, 302, 304, 309, 314, 316, 320,
@@ -55,7 +55,7 @@ BettiTable(A);
 BettiNumber(A,2,4);  // Returns 0. Notice that the indexations of Betti numbers are different. This is more thoroughly explained in the paper.
 ```
 
-- Small_genus.txt is used only for curves $X_0^*(N)$. It constructs gonal maps to $\mathbb{P}^1$ from curves of genus $4$ and $6$. All constructions use Magma functions Genus4GonalMap() and Genus6GonalMap(). We also construct a degree $4$ map from a genus $5$ curve $X_0^*(378)$.
+- Small_genus.txt is used only for curves $X_0^* (N)$. It constructs gonal maps to $\mathbb{P}^1$ from curves of genus $4$ and $6$. All constructions use Magma functions Genus4GonalMap() and Genus6GonalMap(). We also construct a degree $4$ map from a genus $5$ curve $X_0^*(378)$.
 
 ### Example
 We explicitly find a degree $3$ rational map from $X_0^*(148)$ to $\mathbb{P}^1$. 
@@ -90,7 +90,7 @@ We explicitly find a degree $4$ rational map from $X_0^*(218)$ to $\mathbb{P}^1$
   s;
 ```
 
-- Fp_gonality folder contains codes that give lower bounds on $\mathbb{Q}$-gonality by bounding the $\mathbb{F}_p$-gonality. It is split into two folders, star (for $X_0^*(N)$) and intermediate (for $X_0(N)/W_N$). The methods used there are either
+- Fp_gonality folder contains codes that give lower bounds on $\mathbb{Q}$-gonality by bounding the $\mathbb{F}_p$-gonality. It is split into two folders, star (for $X_0^* (N)$ ) and intermediate (for $X_0(N)/W_N$ ). The methods used there are either
   - proving that all $\mathbb{F}_p$-rational divisors $D\geq0$ of degree $d$ have Riemann-Roch dimension $1$ (file Fp_gonality.txt).
   - counting the number of $\mathbb{F}_q$ points and concluding it is too large, i.e., greater than $4 (q+1)$.
 
